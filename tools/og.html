@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+  Source for /og.png (1200x630). Rendered by `make og`.
+  Edit the copy here, not the PNG. Regenerate after any tagline change.
+  The card is the site in miniature: the ward round header, the line that
+  states the problem, and the beds. The domain in the footer is the
+  canonical host; if the site moves, change it here too and re-run `make og`.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #0e0b07;
+    color: #f2e4cd;
+    font-family: "Liberation Mono", "Courier New", monospace;
+    padding: 64px 72px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .rail {
+    display: flex; justify-content: space-between;
+    font-size: 16px; letter-spacing: .16em; text-transform: uppercase;
+    color: #c1861c; border-bottom: 1px solid #3a2c17; padding-bottom: 18px;
+  }
+  .mark { width: 76px; height: 76px; display: block; margin-top: 40px; }
+  h1 {
+    font-size: 60px; font-weight: bold; color: #ffb000;
+    line-height: 1.1; margin-top: 26px; max-width: 25ch;
+  }
+  p { margin-top: 22px; font-size: 22px; color: #94795a; max-width: 52ch; }
+  .beds {
+    margin-top: auto; margin-bottom: 30px; display: flex; gap: 26px; flex-wrap: wrap;
+    font-size: 17px; letter-spacing: .1em; text-transform: uppercase; color: #94795a;
+  }
+  .beds b { color: #f2e4cd; font-weight: normal; }
+  .foot {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 0 72px 26px;
+    display: flex; justify-content: space-between;
+    font-size: 15px; color: #6b5539;
+    text-transform: uppercase; letter-spacing: .14em;
+  }
+</style>
+</head>
+<body>
+  <div class="rail">
+    <span>Ward round &#183; six beds occupied</span>
+    <span>Palliative care only</span>
+  </div>
+
+  <svg class="mark" viewBox="0 0 64 64">
+    <path d="M4 36 H16 L20 36 L24 18 L28 48 L32 30 L36 36 H44"
+          fill="none" stroke="#ffb000" stroke-width="4"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+    <rect x="48" y="28" width="10" height="14" fill="#ffb000"/>
+  </svg>
+
+  <h1>They are not dead. That is the difficulty.</h1>
+  <p>Gopher, Finger, Telnet, FTP, NNTP and X11. All still answering. None of them cured.</p>
+
+  <div class="beds">
+    <span>Bed 01 <b>Gopher</b></span>
+    <span>02 <b>Finger</b></span>
+    <span>03 <b>Telnet</b></span>
+    <span>04 <b>FTP</b></span>
+    <span>05 <b>NNTP</b></span>
+    <span>06 <b>X11</b></span>
+  </div>
+
+  <div class="foot">
+    <span>DOC: BEI-PH</span>
+    <span>HOSPICE.BESTEFFORTINDUSTRIES.COM</span>
+    <span>No protocol is resuscitated here</span>
+  </div>
+</body>
+</html>

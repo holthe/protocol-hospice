@@ -1,0 +1,9 @@
+# Crawl freely. Everything here is a matter of public record,
+# most of it in an RFC older than the crawler.
+
+User-agent: *
+Allow: /
+
+# There is no sitemap. There is one ward and a 404.
+# Several of the patients would serve you this file over a protocol
+# your crawler no longer speaks. They would not make a point of it.

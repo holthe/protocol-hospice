@@ -1,0 +1,11 @@
+<!-- Pixel-grid 16px icon for the smallest .ico entry. The full waveform
+     fills in to a smear at this size, so the mark keeps only what carries
+     the meaning: a live baseline with one beat in it, and the cursor. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <rect width="16" height="16" fill="#0e0b07"/>
+  <g fill="#ffb000">
+    <rect x="1" y="8" width="9" height="2"/>
+    <rect x="5" y="4" width="2" height="4"/>
+    <rect x="11" y="5" width="4" height="6"/>
+  </g>
+</svg>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocol Hospice | 404</title>
+<meta name="description" content="404. No such bed. The ward keeps a register and this page is not in it.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0e0b07">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+  :root{
+    --ground:#0e0b07; --panel:#161009; --rule:#3a2c17; --rule-2:#523d1e;
+    --amber:#ffb000; --amber-dim:#c1861c; --cream:#f2e4cd; --muted:#94795a; --faint:#6b5539;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--ground);color:var(--cream);
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    font-size:14px;line-height:1.65;font-variant-numeric:tabular-nums;
+    min-height:100vh;display:flex;flex-direction:column}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 clamp(14px,3.5vw,28px);width:100%}
+  a{color:var(--amber)}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+  ::selection{background:var(--amber);color:var(--ground)}
+
+  .rail{border-bottom:1px solid var(--rule);background:var(--panel)}
+  .rail .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-top:10px;padding-bottom:10px;font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--amber-dim)}
+
+  main{flex:1;display:flex;align-items:center;padding:clamp(46px,9vw,100px) 0}
+  .frame{color:var(--rule-2);font-size:12px;line-height:1.15;white-space:pre;overflow:hidden}
+  h1{font-size:clamp(60px,16vw,124px);font-weight:700;color:var(--amber);line-height:1;margin-top:20px}
+  h2{font-size:clamp(19px,3.2vw,28px);font-weight:700;color:var(--cream);margin-top:12px;
+    max-width:22ch;text-wrap:balance}
+  p{margin-top:18px;color:var(--muted);max-width:60ch}
+
+  .chart{margin-top:30px;border-left:3px solid var(--amber);background:var(--panel);
+    padding:18px 22px;max-width:64ch}
+  .chart b{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .chart p{margin-top:8px;color:var(--cream)}
+
+  .back{margin-top:32px}
+  .back a{display:inline-block;background:var(--amber);color:#1a1205;text-decoration:none;
+    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:15px 30px}
+  .back a:hover{background:#ffc23a}
+
+  footer{border-top:1px solid var(--rule);padding:22px 0 30px;
+    font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+  @media (max-width:760px){.frame{font-size:9px}}
+</style>
+</head>
+<body>
+
+<div class="rail">
+  <div class="wrap">
+    <span>Ward round &middot; six beds occupied</span>
+    <span>Palliative care only</span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="frame">┌────────────────────────────────────┐
+│  NO SUCH BED.  THE REGISTER HOLDS. │
+└────────────────────────────────────┘</div>
+    <h1>404</h1>
+    <h2>Nobody was ever admitted at this address.</h2>
+    <p>The ward keeps a register of six beds, one discharge and four deaths. This page appears in none of them, and the hospice does not speculate about patients it has not seen.</p>
+
+    <div class="chart">
+      <b>Note on the chart</b>
+      <p>A missing page is not a dying page. It is the one condition on this site that resolves completely, usually by checking the spelling.</p>
+    </div>
+
+    <div class="back"><a href="/">Return to the ward</a></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">DOC: BEI-PH &middot; APPENDIX 404 / ISSUED / NO BED ASSIGNED, NO CARE REQUIRED</div>
+</footer>
+
+</body>
+</html>

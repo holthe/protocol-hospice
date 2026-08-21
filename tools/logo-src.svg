@@ -1,0 +1,22 @@
+<!-- Source for assets/logo.svg. Text is still live here; `make logo` runs
+     Inkscape with export-text-to-path so the committed logo does not depend
+     on the viewer's fonts. Courier New resolves through fontconfig to
+     Liberation Mono, which is metric-compatible (see the README's font
+     note), so the outlined result matches what the site renders. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 400" width="1240" height="400" role="img" aria-label="Protocol Hospice">
+  <rect width="1240" height="400" fill="#0e0b07"/>
+  <rect x="0" y="0" width="1240" height="6" fill="#ffb000"/>
+
+  <g transform="translate(88 132)">
+    <g transform="scale(2.1)">
+      <path d="M4 36 H16 L20 36 L24 18 L28 48 L32 30 L36 36 H44"
+            fill="none" stroke="#ffb000" stroke-width="4"
+            stroke-linecap="square" stroke-linejoin="miter"/>
+      <rect x="48" y="28" width="10" height="14" fill="#ffb000"/>
+    </g>
+  </g>
+
+  <text x="88" y="112" font-family="Liberation Mono, Courier New, monospace" font-size="21" letter-spacing="8" fill="#c1861c">WARD ROUND &#183; SIX BEDS OCCUPIED</text>
+  <text x="240" y="286" font-family="Liberation Mono, Courier New, monospace" font-size="72" font-weight="bold" letter-spacing="2" fill="#ffb000">PROTOCOL HOSPICE</text>
+  <text x="240" y="336" font-family="Liberation Mono, Courier New, monospace" font-size="21" letter-spacing="3" fill="#94795a">THEY ARE NOT DEAD. THAT IS THE DIFFICULTY.</text>
+</svg>

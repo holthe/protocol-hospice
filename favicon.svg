@@ -1,0 +1,11 @@
+<!-- The ward mark: a monitor trace that is still beating, and the block
+     cursor waiting at the end of it. The joke, and the point, is that the
+     line has not gone flat. No text, so nothing here depends on the
+     viewer's fonts and this file is committed as written. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="A monitor trace, still beating, with a block cursor at the end">
+  <rect width="64" height="64" fill="#0e0b07"/>
+  <path d="M4 36 H16 L20 36 L24 18 L28 48 L32 30 L36 36 H44"
+        fill="none" stroke="#ffb000" stroke-width="4"
+        stroke-linecap="square" stroke-linejoin="miter"/>
+  <rect x="48" y="28" width="10" height="14" fill="#ffb000"/>
+</svg>
