@@ -45,6 +45,9 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{background:var(--ground);color:var(--cream);
+    background-image:radial-gradient(120% 80% at 50% -10%, rgba(255,176,0,.055), transparent 60%),
+                     radial-gradient(90% 60% at 50% 108%, rgba(255,176,0,.035), transparent 62%);
+    background-attachment:fixed;
     font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
     font-size:14px;line-height:1.65;font-variant-numeric:tabular-nums;
     padding:0 0 70px}
@@ -54,7 +57,8 @@
   ::selection{background:var(--amber);color:var(--ground)}
 
   /* top rail: the terminal the ward is written on */
-  .rail{border-bottom:1px solid var(--rule);background:var(--panel)}
+  .rail{border-bottom:1px solid var(--rule);background:rgba(22,16,9,.94);
+    position:sticky;top:0;z-index:5;backdrop-filter:blur(6px)}
   .rail .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     padding-top:10px;padding-bottom:10px;font-size:11.5px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--amber-dim)}
@@ -68,13 +72,16 @@
   header{padding:clamp(38px,7vw,74px) 0 clamp(28px,5vw,46px);border-bottom:1px solid var(--rule)}
   .frame{color:var(--rule-2);font-size:12px;line-height:1.15;white-space:pre;overflow:hidden}
   h1{font-size:clamp(28px,6.4vw,54px);font-weight:700;color:var(--amber);
-    letter-spacing:-.01em;line-height:1.05;margin:18px 0 0;text-wrap:balance}
+    letter-spacing:-.01em;line-height:1.05;margin:18px 0 0;text-wrap:balance;
+    text-shadow:0 0 26px rgba(255,176,0,.28)}
   .sub{margin-top:14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .lede{margin-top:24px;max-width:66ch;color:var(--cream)}
   .lede + .lede{margin-top:14px;color:var(--muted)}
 
   section{padding:clamp(40px,6vw,68px) 0;border-bottom:1px solid var(--rule)}
-  .kicker{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber-dim)}
+  .kicker{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber-dim);
+    display:flex;align-items:center;gap:14px}
+  .kicker:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--rule-2),transparent)}
   h2{font-size:clamp(20px,3.2vw,29px);font-weight:700;color:var(--cream);margin:10px 0 12px;letter-spacing:-.01em}
   .note{color:var(--muted);max-width:64ch}
 
@@ -99,13 +106,16 @@
   /* the ward */
   .ward{display:grid;gap:0;margin-top:28px;border:1px solid var(--rule-2)}
   .bed{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:0;
-    border-bottom:1px solid var(--rule)}
+    border-bottom:1px solid var(--rule);position:relative}
+  .bed:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:currentColor}
   .bed:last-child{border-bottom:0}
-  .bed .main{padding:22px clamp(16px,2.6vw,24px)}
+  .bed .main{padding:22px clamp(18px,2.6vw,26px);position:relative}
+  .bed .ghost{position:absolute;right:14px;top:8px;font-size:58px;font-weight:700;
+    color:currentColor;opacity:.09;line-height:1;pointer-events:none;user-select:none}
   .bed .side{padding:22px clamp(16px,2.6vw,24px);border-left:1px solid var(--rule);background:var(--panel)}
   .bedhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
   .bedno{color:var(--faint);font-size:11.5px;letter-spacing:.16em}
-  .pname{font-size:21px;font-weight:700;color:var(--amber)}
+  .pname{font-size:22px;font-weight:700;color:var(--amber);letter-spacing:-.01em}
   .rfc{font-size:11.5px;color:var(--muted);letter-spacing:.08em}
   .still{margin-top:12px;color:var(--cream);max-width:62ch}
   .attend{margin-top:12px;color:var(--muted);max-width:62ch;font-style:italic}
@@ -114,15 +124,43 @@
   .vitals dt{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:12px}
   .vitals dt:first-child{margin-top:0}
   .vitals dd{font-size:13.5px;color:var(--cream)}
-  .trace{color:var(--amber);letter-spacing:.06em;font-size:19px;line-height:1.1}
-  .scale{display:flex;justify-content:space-between;font-size:10px;color:var(--faint);
-    letter-spacing:.04em;margin-top:4px;max-width:11.4em}
   .cond-tag{display:inline-block;margin-top:12px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
     border:1px solid currentColor;padding:2px 8px}
   .c-comfortable{color:var(--green)}
   .c-declining{color:var(--amber-dim)}
   .c-stable{color:var(--cream)}
   .c-critical{color:var(--crit)}
+
+  /* occupancy: every patient and every death on one axis */
+  .occ{margin-top:26px;border:1px solid var(--rule-2);background:var(--panel);
+    padding:24px clamp(16px,2.6vw,26px) 18px}
+  .occ .hd{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+    padding-bottom:16px;border-bottom:1px solid var(--rule)}
+  .occ .lines{display:grid;gap:9px;padding:18px 0 0}
+  .occ .ln{display:grid;grid-template-columns:86px minmax(0,1fr);align-items:center;gap:14px}
+  .occ .who{font-size:12.5px;color:var(--cream);letter-spacing:.02em;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis}
+  .occ .ln.dead .who{color:var(--faint)}
+  .occ .track{position:relative;height:16px;
+    background-image:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 19.2308%)}
+  .occ .bar{position:absolute;top:4px;height:8px;background:currentColor}
+  /* a line that has not ended runs off the axis rather than stopping on it */
+  .occ .ln.live .track:after{content:"";position:absolute;right:1px;top:2px;
+    border-left:11px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .occ .ln.dead{color:var(--faint)}
+  .occ .ln.dead .bar:after{content:"";position:absolute;right:-1px;top:-4px;
+    width:3px;height:16px;background:var(--crit)}
+  .occ .axis{display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;margin-top:12px}
+  .occ .ticks{position:relative;height:14px;font-size:10px;color:var(--faint);letter-spacing:.04em}
+  .occ .ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .occ .key{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;padding-top:16px;
+    border-top:1px solid var(--rule);font-size:11px;color:var(--muted)}
+  .occ .key i{display:inline-block;width:22px;height:6px;vertical-align:.08em;margin-right:8px;font-style:normal}
+  @media (max-width:600px){
+    .occ .ln,.occ .axis{grid-template-columns:64px minmax(0,1fr);gap:10px}
+    .occ .who{font-size:11.5px}
+  }
 
   /* discharged + deceased + visiting */
   .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;
@@ -225,7 +263,20 @@
   <div class="wrap">
     <div class="kicker">The ward</div>
     <h2>Six beds, all occupied, none of them by anything that has stopped working</h2>
-    <p class="note">Admission date is the date of first publication. The trace is indicative of use over five decades and is not measured; nobody has ever measured it, which is part of why they are here.</p>
+    <p class="note">Admission date is the date of first publication. Nothing on this chart is an estimate: a line begins when the protocol was first published and ends when the last public server went dark. Six of them do not end.</p>
+
+    <div class="occ">
+      <div class="hd"><span>Occupancy &middot; 1975 to now</span><span>Six current &middot; four ended</span></div>
+      <div class="lines" id="occ"></div>
+      <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
+      <div class="key">
+        <span><i style="background:var(--green)"></i>Comfortable</span>
+        <span><i style="background:var(--amber-dim)"></i>Declining</span>
+        <span><i style="background:var(--cream)"></i>Stable</span>
+        <span><i style="background:var(--crit)"></i>Critical</span>
+        <span><i style="background:var(--faint)"></i>Ended</span>
+      </div>
+    </div>
 
     <div class="ward" id="ward"></div>
   </div>
@@ -310,58 +361,77 @@
 <script>
 (function(){
   var WARD = [
-    { bed:'01', name:'Gopher', rfc:'RFC 1436 &middot; 1991', cond:'Comfortable', cls:'c-comfortable',
-      trace:'▁▁▁▆▃▂▁▂▂▂',
+    { bed:'01', name:'Gopher', from:1991, rfc:'RFC 1436 &middot; 1991', cond:'Comfortable', cls:'c-comfortable',
       still:'Serves a document tree over a socket in a form a 1991 client can still read. There are a few thousand holes left, and one of them has been up continuously since 1999.',
       attend:'Left home when its university announced a licensing fee for the server software, and the web took everything in the eighteen months that followed. Has been in the same bed since, entirely lucid, receiving a small and unusually devoted stream of visitors.',
       vitals:['Admitted','1991','Still serving','A few thousand hosts'] },
 
-    { bed:'02', name:'Finger', rfc:'RFC 742 &middot; 1977', cond:'Declining', cls:'c-declining',
-      trace:'▃▅▆▆▃▂▁▁▁▁',
+    { bed:'02', name:'Finger', from:1977, rfc:'RFC 742 &middot; 1977', cond:'Declining', cls:'c-declining',
       still:'Answers the question of whether a person is at their machine, and prints whatever they left in a plain file for anyone who asked.',
       attend:'For several years in the nineties, the way a games studio told the world what it had shipped that night was a text file read out over this protocol. Was also the way the 1988 worm got into several thousand machines, which is the injury it never recovered from.',
       vitals:['Admitted','1977','Still answering','A handful of hosts'] },
 
-    { bed:'03', name:'Telnet', rfc:'RFC 854 &middot; 1983', cond:'Stable', cls:'c-stable',
-      trace:'▆▇█▇▆▄▃▂▂▂',
+    { bed:'03', name:'Telnet', from:1983, rfc:'RFC 854 &middot; 1983', cond:'Stable', cls:'c-stable',
       still:'Opens a character stream to anything with a listening port, asks nothing, encrypts nothing, and does exactly what it is told.',
       attend:'The reason it is on the ward is the reason it is still working: it has no opinions about security whatsoever. Ships disabled by default nearly everywhere and remains, quietly, the first thing anyone reaches for when a device will not answer any other way.',
       vitals:['Admitted','1983','Still reachable','Most network hardware'] },
 
-    { bed:'04', name:'FTP', rfc:'RFC 959 &middot; 1985', cond:'Declining', cls:'c-declining',
-      trace:'▅▆▇█▇▇▅▄▃▂',
+    { bed:'04', name:'FTP', from:1985, rfc:'RFC 959 &middot; 1985', cond:'Declining', cls:'c-declining',
       still:'Moves files, in bulk, between machines that have never heard of each other, over two connections and a control channel from before firewalls existed.',
       attend:'Lost browser support entirely in 2021, within six months, from both of the browsers that still had it. Took it well. Continues to move a great deal of industrial and embedded traffic for people who were never asked what they thought about it.',
       vitals:['Admitted','1985','Removed from browsers','2021'] },
 
-    { bed:'05', name:'NNTP', rfc:'RFC 977 &middot; 1986', cond:'Comfortable', cls:'c-comfortable',
-      trace:'▁▂▄▆█▇▅▃▂▂',
+    { bed:'05', name:'NNTP', from:1986, rfc:'RFC 977 &middot; 1986', cond:'Comfortable', cls:'c-comfortable',
       still:'Distributes a threaded discussion to every server that carries it, so that reading it needs no connection to wherever it was written.',
       attend:'Carried most of what the network said to itself for about fifteen years. The conversation moved to the web, then to the platforms, and the servers went on flooding articles to each other regardless. Most of what it carries now is not conversation at all.',
       vitals:['Admitted','1986','Text groups','Quiet, not empty'] },
 
-    { bed:'06', name:'X11', rfc:'X Protocol &middot; 1987', cond:'Critical', cls:'c-critical',
-      trace:'▁▁▄▆▇██▇▆▄',
+    { bed:'06', name:'X11', from:1987, rfc:'X Protocol &middot; 1987', cond:'Critical', cls:'c-critical',
       still:'Puts a window from one machine onto the screen of another, over the network, as its ordinary and unremarkable behaviour.',
       attend:'Its replacement is now the default nearly everywhere, and it is increasingly reached through a translation layer rather than directly. The most network-transparent thing on the ward, being succeeded by something that decided network transparency was not the point.',
       vitals:['Admitted','1987','Reached via','A compatibility layer'] }
   ];
+
+  /* one axis for the living and the dead. Years are real: first
+     publication on the left, last public server on the right. */
+  var T0 = 1975, T1 = 2027;
+  var GONE = [
+    { name:'WAIS',   from:1991, to:1998 },
+    { name:'Archie', from:1990, to:2013 },
+    { name:'WHOIS',  from:1982, to:2025 },
+    { name:'rlogin', from:1983, to:1999 }
+  ];
+  function pc(y){ return ((y - T0) / (T1 - T0)) * 100; }
+  var occ = document.getElementById('occ'), oh = '';
+  for (var a=0;a<WARD.length;a++){
+    var w = WARD[a];
+    oh += '<div class="ln live '+w.cls+'"><span class="who">'+w.name+'</span>'
+        + '<div class="track"><span class="bar" style="left:'+pc(w.from).toFixed(2)+'%;right:14px"></span></div></div>';
+  }
+  for (var b=0;b<GONE.length;b++){
+    var g = GONE[b];
+    oh += '<div class="ln dead"><span class="who">'+g.name+'</span>'
+        + '<div class="track"><span class="bar" style="left:'+pc(g.from).toFixed(2)+'%;width:'
+        + (pc(g.to)-pc(g.from)).toFixed(2)+'%"></span></div></div>';
+  }
+  occ.innerHTML = oh;
+  var th = '';
+  for (var y=T0; y<=2025; y+=10) th += '<span style="left:'+pc(y).toFixed(2)+'%">'+y+'</span>';
+  document.getElementById('ticks').innerHTML = th;
 
   var ward = document.getElementById('ward');
   var html = '';
   for (var i=0;i<WARD.length;i++){
     var p = WARD[i], v = p.vitals, vh = '';
     for (var k=0;k<v.length;k+=2) vh += '<dt>'+v[k]+'</dt><dd>'+v[k+1]+'</dd>';
-    html += '<div class="bed">'
-      + '<div class="main">'
+    html += '<div class="bed '+p.cls+'">'
+      + '<div class="main"><span class="ghost">'+p.bed+'</span>'
       +   '<div class="bedhead"><span class="bedno">BED '+p.bed+'</span>'
       +     '<span class="pname">'+p.name+'</span><span class="rfc">'+p.rfc+'</span></div>'
       +   '<p class="still">'+p.still+'</p>'
       +   '<p class="attend">'+p.attend+'</p>'
       + '</div>'
       + '<div class="side"><dl class="vitals">'+vh+'</dl>'
-      +   '<dt style="font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:12px">Trace</dt>'
-      +   '<div class="trace">'+p.trace+'</div><div class="scale"><span>1975</span><span>2025</span></div>'
       +   '<div class="cond-tag '+p.cls+'">'+p.cond+'</div>'
       + '</div></div>';
   }

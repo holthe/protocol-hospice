@@ -50,10 +50,14 @@ the page is real:
   the patient that can still do it, with a note on how carefully to
   approach. Answering "this is for production" gets the honest advice:
   wrap it, terminate it behind something modern, and stop apologising.
+* **The occupancy chart** puts every patient and every death on one axis,
+  1975 to now. A line begins at first publication; the four that ended
+  stop, with a red cap, at the year the last public server went dark. The
+  six that have not ended run off the right-hand edge under an arrowhead.
+  Nothing on it is an estimate.
 * **The ward** gives each patient an admission date, what it can still do,
-  a note from the attending, and a five-decade trace drawn in block
-  characters. The traces are labelled indicative and unmeasured, because
-  nobody has ever measured them.
+  a note from the attending, and a condition, carried as a coloured stripe
+  down the left edge of the bed so the six read at a glance.
 * **The deceased register** records WAIS, Archie, WHOIS (formally
   superseded by RDAP, with the gTLD sunset in January 2025) and the
   `r`-commands, on the principle that a protocol is dead when the last
@@ -99,9 +103,8 @@ markup, because they are data and the page renders them.
 
 An amber terminal, not a green one. Green phosphor is the reflex choice
 and it reads cold; amber reads like something being kept warm, which is
-the entire subject. Box-drawing characters carry the banner rules, the
-traces are Unicode block elements, and the attending's notes are set in
-italic so the clinical record and the human aside are visibly different
+the entire subject. Box-drawing characters carry the banner rules and the
+attending's notes are set in italic so the clinical record and the human aside are visibly different
 registers.
 
 Three decisions worth keeping:
@@ -114,8 +117,13 @@ Three decisions worth keeping:
   clock, which stops entirely under `prefers-reduced-motion`. No
   scanlines, no CRT curvature, no typing effect.
 * **Colour means something.** In a monochrome terminal a second hue is an
-  event, so green appears only on a Comfortable condition tag and beside
-  SMTP, and red only on Critical and the deceased register.
+  event, so green appears only on a Comfortable condition and beside SMTP,
+  and red only on Critical, the deceased register, and the cap that ends a
+  line on the occupancy chart.
+* **The chart carries the thesis.** Six lines that do not end, beside four
+  that do, on one axis, says what the whole site is about before a word of
+  it is read. It replaced six small per-bed sparklines, which said the
+  same thing six times and never once compared them.
 
 ### The production domain
 
