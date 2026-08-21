@@ -39,8 +39,8 @@
   :root{
     --ground:#0e0b07; --panel:#161009; --panel-2:#1d1509;
     --rule:#3a2c17; --rule-2:#523d1e;
-    --amber:#ffb000; --amber-dim:#c1861c; --cream:#f2e4cd; --muted:#94795a;
-    --faint:#6b5539; --crit:#ff6a45; --green:#8fbf6a;
+    --amber:#ffb000; --amber-dim:#c1861c; --cream:#f2e4cd; --muted:#b09371;
+    --faint:#94795a; --crit:#ff6a45; --green:#8fbf6a;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
@@ -263,7 +263,7 @@
   <div class="wrap">
     <div class="kicker">The ward</div>
     <h2>Six beds, all occupied, none of them by anything that has stopped working</h2>
-    <p class="note">Admission date is the date of first publication. Nothing on this chart is an estimate: a line begins when the protocol was first published and ends when the last public server went dark. Six of them do not end.</p>
+    <p class="note">A line begins when the protocol was first released and ends when the last public server went dark. The four end dates are approximate, because nobody was keeping the minutes by then; the start dates and the six lines that do not end are matters of record.</p>
 
     <div class="occ">
       <div class="hd"><span>Occupancy &middot; 1975 to now</span><span>Six current &middot; four ended</span></div>
@@ -361,7 +361,7 @@
 <script>
 (function(){
   var WARD = [
-    { bed:'01', name:'Gopher', from:1991, rfc:'RFC 1436 &middot; 1991', cond:'Comfortable', cls:'c-comfortable',
+    { bed:'01', name:'Gopher', from:1991, rfc:'Built 1991 &middot; RFC 1436, 1993', cond:'Comfortable', cls:'c-comfortable',
       still:'Serves a document tree over a socket in a form a 1991 client can still read. There are a few thousand holes left, and one of them has been up continuously since 1999.',
       attend:'Left home when its university announced a licensing fee for the server software, and the web took everything in the eighteen months that followed. Has been in the same bed since, entirely lucid, receiving a small and unusually devoted stream of visitors.',
       vitals:['Admitted','1991','Still serving','A few thousand hosts'] },
@@ -451,7 +451,7 @@
               txt:'It will open the socket and get out of the way, which is the whole of its character. Everything you type crosses the network in the clear, so do this on a cable you own, to a device in the same room.' },
     window: { who:'X11, bed 06', cond:'Critical &middot; handle with care',
               txt:'It has done this since 1987 and will do it now: the program runs there, the window appears here, and nothing in between needed to be told about it. Increasingly you will reach it through a translation layer rather than directly.' },
-    chat:   { who:'IRC &mdash; not a patient', cond:'Discharged against advice',
+    chat:   { who:'IRC, not a patient', cond:'Discharged against advice',
               txt:'Not on the ward. Discharged itself twice and is currently carrying tens of thousands of people who have places to be. You want a network and a channel name, not a bed number.' }
   };
   var CARE = {
