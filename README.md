@@ -103,11 +103,11 @@ markup, because they are data and the page renders them.
 
 An amber terminal, not a green one. Green phosphor is the reflex choice
 and it reads cold; amber reads like something being kept warm, which is
-the entire subject. Box-drawing characters carry the banner rules and the
-attending's notes are set in italic so the clinical record and the human aside are visibly different
-registers.
+the entire subject. Box-drawing characters carry the banner rules and the attending's
+notes are set in italic, so the clinical record and the human aside are
+visibly different registers.
 
-Three decisions worth keeping:
+Four decisions worth keeping:
 
 * **The tone is affection, not mockery.** Every other division in the
   fleet is deadpan-bureaucratic. This one is warm on purpose, and the
